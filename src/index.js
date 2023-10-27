@@ -1,3 +1,6 @@
+import SimpleLightbox from "simplelightbox";
+import "simplelightbox/dist/simple-lightbox.min.css";
+
 const elements = {
     form: document.querySelector('.search-form'),
     searchInput: document.querySelector('input[name="searchQuery"]'),
