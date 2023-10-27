@@ -32,5 +32,7 @@ async function serviceGetCats(arr) {
  });
  const data = await Promise.allSettled(promises);
  const cats = data.filter(({status}) => status === 'fulfilled').map(({value}) => )
- console.log(cats);
+//  console.log(cats);
 }
+
+
