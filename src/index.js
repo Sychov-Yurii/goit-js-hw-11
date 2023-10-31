@@ -30,9 +30,9 @@ async function serviceGetCats(arr) {
             console.error('An error occured: ', error);
         }
  });
- const data = await Promise.allSettled(promises);
- const cats = data.filter(({status}) => status === 'fulfilled').map(({value}) => )
-//  console.log(cats);
+//  const data = await Promise.allSettled(promises);
+//  const cats = data.filter(({status}) => status === 'fulfilled').map(({value}) => )
+// //  console.log(cats);
 }
 
 
