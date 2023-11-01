@@ -12,12 +12,13 @@ elements.form.addEventListener('submit', onSearchCats);
 
 
 
-// async function fetchImages(evt) {
-//     evt.preventDefault()
-//     const formData = new FormData (evt.currentTarget);
-//     const cats = formData.getAll('searchInput');
-//     console.log(cats);
-// };
+async function onSearchCats() {
+    fetchImages()
+    // evt.preventDefault()
+    // const formData = new FormData (evt.currentTarget);
+    // const cats = formData.getAll('searchInput');
+    // console.log(cats);
+};
 
 // fetchImages()
 

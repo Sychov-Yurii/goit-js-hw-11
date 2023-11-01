@@ -14,3 +14,5 @@ export async function fetchImages() {
     const {data} = await axios(`?${options}`);
     return data;
 }
+
+fetchImages() 
