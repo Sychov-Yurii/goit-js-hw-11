@@ -1,31 +1,39 @@
-import { fetchImages } from './js/pixabayApi';
+import "simplelightbox/dist/simple-lightbox.min.css";
+import { onSearch } from "./js/render";
+import { addPages } from "./js/render";
 
-const elements = {
-    form: document.querySelector('.search-form'),
-    searchInput: document.querySelector('input[name="searchQuery"]'),
-};
+import './style.css'
 
-elements.form.addEventListener('submit', onSearch);
 
-function onSearch(evt) {
-    evt.preventDefault();
-    const formData = new FormData(evt.currentTarget);
-    const searchQuery = formData.get('searchQuery');
-    getImages([searchQuery]); 
-}
+const form = document.querySelector('.search-form');
+const loadMore = document.querySelector('.load-more')
 
-async function getImages(arr) {
-    const promises = arr.map(async (searchQuery) => {
-        const resp = await fetchImages(searchQuery);
-        if (!resp.ok) {
-        
-            throw new Error(resp.statusText);
-        }
-        return resp.json();
-    });  
-    const data = await Promise.allSettled(promises);
-    console.log(data);
-}
+loadMore.classList.add('is-hidden')
+
+form.addEventListener('submit', onSearch)
+loadMore.addEventListener('click', addPages)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -42,29 +50,72 @@ async function getImages(arr) {
 //     searchInput: document.querySelector('input[name="searchQuery"]'),
 // };
 
-// elements.form.addEventListener('submit', onSearchCats);
+// elements.form.addEventListener('submit', onSearch);
+
+// function onSearch(evt) {
+//     evt.preventDefault();
+//     const formData = new FormData(evt.currentTarget);
+//     const cards = formData.getAll('searchQuery');
+//     getImages(cards);
+// }
+
+// async function getImages(arr) {
+//     const promises = arr.map(async card => {
+//         const resp = await fetchImages(); 
+//         console.log(resp);
+//     });
+// };
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// import axios from 'axios';
 // import Notiflix from 'notiflix';
-// import SimpleLightbox from 'simplelightbox';
-// import 'simplelightbox/dist/simple-lightbox.min.css';
+// import SimpleLightbox from "simplelightbox";
+// import "simplelightbox/dist/simple-lightbox.min.css";
+// import { fetchImages } from './js/pixabayApi';
+
+// const elements = {
+//     form: document.querySelector('.search-form'),
+//     searchInput: document.querySelector('input[name="searchQuery"]'),
+// };
+
+// elements.form.addEventListener('submit', onSearch);
+
+// function onSearch(evt) {
+//     evt.preventDefault();
+//     const formData = new FormData(evt.currentTarget);
+//     const searchQuery = formData.get('searchQuery'); // Возможно, вам нужно использовать `get` вместо `getAll` для получения одного значения.
+//     getImages(searchQuery);
+// }
+
+// async function getImages(query) {
+//     try {
+//         const resp = await fetchImages(query);
+//         console.log(resp);
+//     } catch (error) {
+//         console.error(error);
+//         Notiflix.Notify.failure('Failed to fetch images.');
+//     }
+// }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 // const searchForm = document.getElementById('search-form');
 // const gallery = document.querySelector('.gallery');
