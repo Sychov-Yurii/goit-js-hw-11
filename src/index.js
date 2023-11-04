@@ -1,7 +1,25 @@
+import { fetchImages } from './js/pixabayApi';
+const elements = {
+    form: document.querySelector('.search-form'),
+    searchInput: document.querySelector('input[name="searchQuery"]'),
+};
 
+elements.form.addEventListener('submit', onSearch);
 
+function onSearch(evt) {
+    evt.preventDefault();
+    const formData = new FormData(evt.currentTarget);
+    const searchQuery = formData.getAll('searchQuery');
+    getImages(searchQuery);
+}
 
-
+async function getImages (arr) {
+    const promises = arr.map(async image => {
+        const resp = await fetchImages();
+        console.log(resp);
+    }) 
+}
+// fetchImages() 
 
 
 
